@@ -39,22 +39,28 @@ export class NewreviewsComponent implements OnInit {
   }
 
   createReview(): void {
-    console.log("newReview to be insert: ", this.newReview)
-    this.reviews.push(this.newReview);
-    let rest = {id: this.id, 
-      name: this.name, 
-      cuisine: this.cuisine,
-      reviews: this.reviews}
-    let Obs = this._httpService.updateRest(rest);
-    Obs.subscribe(data => {
-      if (data['message'] == 'Success') {
-        console.log('Successfully create review', data);
-        let pStr = '/reviews/' + this.id
-        this._router.navigate([pStr])
-      } else {
-        console.log('Error: Create Author', data['error']);
-      }
-    });
+    if (this.newReview.user.length < 3 || this.newReview.desc.length < 3) {
+      alert('User and review must be more than three characters.  Try again');
+    } else if (this.newReview.stars < 1 || this.newReview.stars > 5 ) {
+      alert('Invalid Star');
+    } else  {
+      console.log("newReview to be insert: ", this.newReview)
+      this.reviews.push(this.newReview);
+      let rest = {id: this.id, 
+        name: this.name, 
+        cuisine: this.cuisine,
+        reviews: this.reviews}
+      let Obs = this._httpService.updateRest(rest);
+      Obs.subscribe(data => {
+        if (data['message'] == 'Success') {
+          console.log('Successfully create review', data);
+          let pStr = '/reviews/' + this.id
+          this._router.navigate([pStr])
+        } else {
+          console.log('Error: Create Author', data['error']);
+        }
+      });
+    }
   }
 
 }
