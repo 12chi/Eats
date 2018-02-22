@@ -1,0 +1,16 @@
+<div>
+  <div class='main'>
+    <h3>Register a restaurant </h3>
+    <div class='displ'>
+      <form (submit)="createRest()">
+        <p class=''> Restaurant Name: </p>
+        <p><input type='text' name="newRest.name" [(ngModel)]="newRest.name"></p>
+        <p class=''> Cuisine: </p>
+        <p><input type='text' name="newRest.cuisine" [(ngModel)]="newRest.cuisine"></p>
+
+        <input type='submit' class='btn inline' [routerLink]="['/home']" value='Cancel' />
+        <input type='submit' class='btn inline' value='Register' />
+      </form> 
+    </div>
+  </div>
+</div>

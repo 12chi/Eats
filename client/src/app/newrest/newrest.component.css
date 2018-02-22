@@ -1,0 +1,13 @@
+.displ {
+    border: 1px solid black;
+    width: 500px;
+    padding: 20px;
+}
+.btn {
+    width: 100px;
+    height: 25px;
+    background-color: aliceblue;
+}
+p {
+    margin: 5px;
+}

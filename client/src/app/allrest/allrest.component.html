@@ -1,0 +1,19 @@
+<div>
+  <p><button class='btn' [routerLink]="['/new']">New Restaurant</button></p>
+  <div *ngIf="rests.length !=0" class='showRests'>
+    <div class='header'>
+      <p class='col1 inline'> Restaurant </p>
+      <p class='col1 inline'> Cuisine </p>
+      <p class='col3 inline'>Actions available</p>
+    </div>
+    <div *ngFor="let rest of rests" class='row'>
+      <p class='field'>{{ rest.name }} </p>
+      <p class='field'>{{ rest.cuisine }} </p>
+      <p class='col3 inline'>  
+        <button class='inline btn' [routerLink]="['/reviews', rest._id]" value="{{ rest._id }}" class='btn'>View Reviews</button>
+        <button class='inline btn' [routerLink]="['/edit', rest._id]" value="{{ rest_id }}" class='btn'>Edit</button>
+        <button class='inline btn' (click)='deleteRest($event)' value="{{ rest._id }}" name='id'>Delete</button>
+      </p>
+    </div>
+  </div>
+</div>

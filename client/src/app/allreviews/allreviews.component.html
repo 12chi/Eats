@@ -1,0 +1,15 @@
+<div>
+    <p><button class='btn' [routerLink]="['/write', id]">New Review</button></p>
+    <div *ngIf="reviews.length !=0" class='showReview'>
+      <div class='header'>
+        <p class='col1 inline'> Customer </p>
+        <p class='col1 inline'> Stars </p>
+        <p class='col3 inline'>Description</p>
+      </div>
+      <div *ngFor="let review of reviews" class='row'>
+        <p class='field'>{{ review.user }} </p>
+        <p class='field'>{{ review.stars }} </p>
+        <p class='col3 field'>{{ review.desc }} </p>
+      </div>
+    </div>
+  </div>

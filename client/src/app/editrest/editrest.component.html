@@ -1,0 +1,15 @@
+<div>
+  <div class='main'>
+    <h3>Edit this restaurant: </h3>
+    <div class='displ'>
+      <form (submit)="updateRest()">
+          <p class=''> Restaurant Name: </p>
+          <p><input type='text' name="reqRest.name" [(ngModel)]="reqRest.name"></p>
+          <p class=''> Cuisine: </p>
+          <p><input type='text' name="reqRest.cuisine" [(ngModel)]="reqRest.cuisine"></p>
+        <input type='submit' class='btn inline' [routerLink]="['/home']" value='Cancel' />
+        <input type='submit' class='btn inline' value='Edit' />
+      </form> 
+    </div>
+  </div>
+</div>
